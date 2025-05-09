@@ -1,0 +1,125 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        body{ font-family: 'Arial', sans-serif;
+        
+        padding-top: 200px;
+        background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), 
+                url("{% static 'C:\Users\user\Desktop\food sty\static\image\Hamburger on a white background food photograph _ Premium AI-generated image.jpeg' %}") ; /* Ensure the image path and file name are correct */    
+        background-size: cover; /* Makes the image cover the entire background */
+        background-repeat: no-repeat; /* Prevents the image from repeating */
+        background-position: center; }
+        /* Navbar Styling */
+/* Navbar with linear gradient */
+.navbar {
+    position: fixed; /* Keeps navbar at the top */
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(to right, #ff7f50, #ff6b81); /* Gradient effect */
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000; /* Keeps it above everything */
+}
+
+/* Navbar links */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    padding: 10px;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.nav-links li a:hover {
+    background: rgba(255, 255, 255, 0.2); /* Soft hover effect */
+}
+
+/* Add space below navbar */
+
+    /* Prevents navbar from covering content */
+
+
+/* Form Styling */
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 300px;
+    margin: auto;
+}
+
+input, button {
+    padding: 10px;
+    margin: 5px;
+    font-size: 16px;
+}
+
+/* Button Hover */
+button {
+    background-color: #ff7f50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: #ff6b81;
+}
+
+/* Responsive Navbar */
+@media (max-width: 768px) {
+    .nav-links {
+        flex-direction: column;
+        display: none;
+    }
+    
+    .nav-links.active {
+        display: flex;
+    }
+}
+
+    </style>
+</head>
+<body>
+    
+
+<form method="post">
+    {% csrf_token %}
+
+    <nav class="navbar">
+        <ul class="nav-links">
+            <li><a href="{% url 'home' %}"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="{% url 'menu' %}"><i class="fas fa-bars"></i> Menu</a></li>
+            <li><a href="{% url 'about' %}"><i class="fas fa-info-circle"></i> About</a></li>
+            <li><a href="{% url 'login' %}"><i class="fas fa-sign-in-alt"></i> Login</a></li>
+            
+        </ul>
+    </nav>
+    
+    <input type="text" name="username" placeholder="Username">
+    <input type="password" name="password" placeholder="Password">
+    <button type="submit">Login</button>
+</form>
+
+
+
+</body>
+</html>

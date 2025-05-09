@@ -1,0 +1,136 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - FoodStore</title>
+    <!-- Linking the external CSS file -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <style>/* General styling */
+       
+       
+       body {
+            font-family: Arial, sans-serif;
+            
+    font-family: Arial, sans-serif;
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), 
+                url("{% static 'C:\Users\user\Desktop\food sty\static\image\Hamburger on a white background food photograph _ Premium AI-generated image.jpeg' %}") no-repeat center center fixed;
+    background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        
+        /* Form container */
+        .container {
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            width: 100%;
+            max-width: 400px;
+        }
+        
+        /* Form styling */
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        
+        /* Button styling */
+        button {
+            background-color: #fff;
+            color: #ff6b81;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: 0.3s;
+        }
+        
+        button:hover {
+            background-color: #ff7f50;
+            color: white;
+        }
+        
+        /* Message Display */
+        .hidden {
+            display: none;
+        }
+        
+        .success {
+            color: #28a745;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Contact Us</h1>
+        <p>Got questions? Reach out to us!</p>
+
+        <form method="post" id="contactForm">
+            {% csrf_token %}
+            
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" placeholder="Enter your name" required>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="5" placeholder="Write your message here" required></textarea>
+            
+            <button type="submit">Submit</button>
+            <p id="formMessage" class="hidden"></p>
+        </form>
+    </div>
+
+    <script src="{% static 'js/script.js' %}">
+        document.addEventListener("DOMContentLoaded", function () {
+    const contactForm = document.getElementById("contactForm");
+    const formMessage = document.getElementById("formMessage");
+
+    contactForm.addEventListener("submit", function (event) {
+        event.preventDefault(); // Prevent default form submission
+
+        // Simple validation
+        let name = document.getElementById("name").value.trim();
+        let email = document.getElementById("email").value.trim();
+        let message = document.getElementById("message").value.trim();
+
+        if (name === "" || email === "" || message === "") {
+            formMessage.textContent = "Please fill in all fields.";
+            formMessage.classList.add("error");
+            formMessage.classList.remove("hidden");
+            return;
+        }
+
+        // Simulate success
+        formMessage.textContent = "Thank you! We'll get back to you soon.";
+        formMessage.classList.add("success");
+        formMessage.classList.remove("hidden");
+
+        // Reset form fields after submission
+        contactForm.reset();
+    });
+});
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <link rel="stylesheet" href="{% static '' %}">
+    <script src="{% static '' %}" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        /* About Page Styling */
+.about-container {
+    max-width: 800px;
+    margin: 100px auto;
+    text-align: center;
+}
+
+/* About Cards */
+.about-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.card {
+    padding: 20px;
+    background: white;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+
+/* Navbar */
+.navbar {
+    position: fixed; /* Keep navbar at the top */
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(to right, #ff7f50, #ff6b81); /* Gradient effect */
+    padding: 15px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); /* Soft shadow */
+    z-index: 1000;
+}
+
+/* Navigation Links */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    padding: 0;
+}
+
+.nav-links li {
+    display: inline-block;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background 0.3s, transform 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Hover Effects */
+.nav-links li a:hover {
+    background: rgba(255, 255, 255, 0.2); /* Soft hover effect */
+    transform: scale(1.1);
+}
+
+/* Responsive Navbar */
+@media (max-width: 768px) {
+    .nav-links {
+        flex-direction: column;
+        align-items: center;
+        display: none;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: block;
+        font-size: 24px;
+        color: white;
+        cursor: pointer;
+    }
+}
+
+
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <ul class="nav-links">
+            <li><a href="{% url 'home' %}"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="{% url 'menu' %}"><i class="fas fa-bars"></i> Menu</a></li>
+            <li><a href="{% url 'about' %}"><i class="fas fa-info-circle"></i> About</a></li>
+            <li><a href="{% url 'contact' %}"><i class="fas fa-envelope"></i> Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- About Section -->
+    <div class="about-container">
+        <h1>About Us</h1>
+        <p>Welcome to our blog! Here, we explore ideas, share insights, and bring knowledge to life.</p>
+
+        <div class="about-grid">
+            <div class="card">📖 Our Story</div>
+            <div class="card">🌍 Our Mission</div>
+            <div class="card">🤝 Get Involved</div>
+        </div>
+    </div>
+
+</body>
+</html>

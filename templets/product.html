@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products & Orders</title>
+    <link rel="stylesheet" href="{% static 'css/pro.css' %}">
+    <script src="{% static 'js/pro.js' %}" defer></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <ul class="nav-links">
+            <li><a href="{% url 'home' %}"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="{% url 'menu' %}"><i class="fas fa-bars"></i> Menu</a></li>
+            <li><a href="{% url 'about' %}"><i class="fas fa-info-circle"></i> About</a></li>
+            <li><a href="{% url 'contact' %}"><i class="fas fa-envelope"></i> Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Top Featured Products -->
+    <section class="featured-section">
+        <h1>🌟 Top Featured Products</h1>
+        <div class="featured-grid">
+            <div class="product-card">
+                <img src="{% static 'C:\Users\user\Desktop\food sty\static\image\b2bae44c-fc10-4084-b1a9-d8cede90ff37.jpeg' %}" alt="Top Dish">
+                <h2>Gourmet Steak</h2>
+                <p>$18.99</p>
+                <button class="order-btn">Order Now</button>
+            </div>
+
+            <div class="product-card">
+                <img src="{% static 'C:\Users\user\Desktop\food sty\static\image\Sushi lovers.jpeg' %}" alt="Best Seller">
+                <h2>Sushi Deluxe</h2>
+                <p>$24.99</p>
+                <button class="order-btn">Order Now</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- New Favorites -->
+    <section class="favorites-section">
+        <h1>🔥 New Favorites</h1>
+        <div class="favorites-grid">
+            <div class="product-card">
+                <img src="{% static 'C:\Users\user\Desktop\food sty\static\image\Spicy Miso Ramen with Crispy Garlic.jpeg' %}" alt="New Dish">
+                <h2>Spicy Ramen</h2>
+                <p>$11.99</p>
+                <button class="order-btn">Order Now</button>
+            </div>
+
+            <div class="product-card">
+                <img src="{% static 'C:\Users\user\Desktop\food sty\static\image\This BBQ Ranch Chicken Wrap is a quick, flavorful….jpeg' %}" alt="Trending">
+                <h2>BBQ Chicken Wrap</h2>
+                <p>$9.99</p>
+                <button class="order-btn">Order Now</button>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>

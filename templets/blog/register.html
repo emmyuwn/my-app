@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/reg.css' %}">
+    <script src="{% static 'js/dg.js' %}" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<style>
+    body{
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), 
+                url("{% static 'C:\Users\user\Desktop\food sty\static\image\Hamburger on a white background food photograph _ Premium AI-generated image.jpeg' %}") ;
+                background-size: cover;
+                background-repeat: no-repeat; /* Prevents the image from repeating */
+                background-position: center;
+    }
+</style>
+    
+</head>
+<body >
+
+    <nav class="navbar">
+        <ul class="nav-links">
+            <li><a href="{% url 'home' %}"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="{% url 'menu' %}"><i class="fas fa-bars"></i> Menu</a></li>
+                <li><a href="{% url 'about' %}"><i class="fas fa-info-circle"></i> About</a></li>
+                <li><a href="{% url 'login' %}"><i class="fas fa-sign-in-alt"></i> Login</a></li>
+                
+        </ul>
+    </nav>
+
+    <div class="form-container">
+        <h2>Register</h2>
+        <form method="post">
+            {% csrf_token %}
+
+            <div class="input-group">
+                <i class="fas fa-user"></i>
+                <input type="text" name="username" placeholder="Username" required>
+            </div>
+
+            <div class="input-group">
+                <i class="fas fa-envelope"></i>
+                <input type="email" name="email" placeholder="Email" required>
+            </div>
+
+            <div class="input-group">
+                <i class="fas fa-lock"></i>
+                <input type="password" name="password" placeholder="Password" required>
+            </div>
+            
+
+            <button type="submit">Register</button>
+        </form>
+    </div>
+
+</body>
+</html>
