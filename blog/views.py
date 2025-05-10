@@ -5,6 +5,10 @@ from .models import Product
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from .models import Product
+from django.conf import settings
+import paypalrestsdk
+from django.shortcuts import render, redirect
+
 
 
 
@@ -89,5 +93,33 @@ def product_list(request):
 
 
  
+
+paypalrestsdk.configure({
+    "mode": settings.PAYPAL_MODE,
+    "client_id": settings.PAYPAL_CLIENT_ID,
+    "client_secret": settings.PAYPAL_SECRET
+})
+
+def create_payment(request):
+    if request.method == "POST":
+        payment = paypalrestsdk.Payment({
+            "intent": "sale",
+            "payer": {"payment_method": "paypal"},
+            "transactions": [{
+                "amount": {"total": "19.99", "currency": "USD"},
+                "description": "Purchase from FStore"
+            }],
+            "redirect_urls": {
+                "return_url": request.build_absolute_uri("/payment-success"),
+                "cancel_url": request.build_absolute_uri("/payment-cancel")
+            }
+        })
+
+        if payment.create():
+            return redirect(payment.links[1].href)  # Redirect user to PayPal checkout
+        else:
+            return render(request, "payment.html", {"error": "Payment failed"})
+    
+    return render(request, "payment.html")
 
 # Create your views here.

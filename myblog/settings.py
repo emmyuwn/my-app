@@ -125,3 +125,7 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+PAYPAL_CLIENT_ID = "your-client-id"
+PAYPAL_SECRET = "your-secret-key"
+PAYPAL_MODE = "sandbox"  # Change to "live" for real transactions
