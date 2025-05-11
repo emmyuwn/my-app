@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'blog',
+
 ]
 
 MIDDLEWARE = [
@@ -129,3 +130,13 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 PAYPAL_CLIENT_ID = "your-client-id"
 PAYPAL_SECRET = "your-secret-key"
 PAYPAL_MODE = "sandbox"  # Change to "live" for real transactions
+
+
+AUTH_USER_MODEL = 'blog.CustomUser'
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
+
+
+
+LOGIN_REDIRECT_URL = '/'

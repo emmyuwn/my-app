@@ -1,13 +1,137 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    {% load static %}
+   
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Products & Orders</title>
-    <link rel="stylesheet" href="{% static 'css/pro.css' %}">
+    
     <script src="{% static 'js/pro.js' %}" defer></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        /* Reset some defaults */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #fafafa;
+    color: #333;
+    line-height: 1.6;
+    padding-bottom: 50px;
+}
+
+/* Navbar */
+.navbar {
+    background-color: #222;
+    padding: 15px 30px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #ffb347;
+}
+
+/* Section titles */
+.featured-section h1,
+.favorites-section h1 {
+    text-align: center;
+    font-size: 2rem;
+    margin: 40px 0 20px;
+    color: #333;
+}
+
+/* Product container */
+.carousel-container {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0 20px;
+}
+
+/* Product card styling */
+.product-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 16px;
+    width: 220px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+}
+
+.product-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 12px;
+}
+
+.product-card h2 {
+    font-size: 18px;
+    margin: 10px 0 5px;
+    color: #222;
+}
+
+.product-card p {
+    font-weight: bold;
+    color: #ff5a5f;
+    margin-bottom: 10px;
+}
+
+/* Button styling */
+.order-btn {
+    background-color: #ff5a5f;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.order-btn:hover {
+    background-color: #e6494f;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+    .carousel-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .product-card {
+        width: 90%;
+    }
+}
+
+    </style>
 
 </head>
 <body>
@@ -21,46 +145,68 @@
             <li><a href="{% url 'contact' %}"><i class="fas fa-envelope"></i> Contact</a></li>
         </ul>
     </nav>
-
-    <!-- Top Featured Products -->
-    <section class="featured-section">
-        <h1>🌟 Top Featured Products</h1>
-        <div class="featured-grid">
-            <div class="product-card">
-                <img src="{% static 'C:\Users\user\Desktop\food sty\static\image\b2bae44c-fc10-4084-b1a9-d8cede90ff37.jpeg' %}" alt="Top Dish">
-                <h2>Gourmet Steak</h2>
-                <p>$18.99</p>
-                <button class="order-btn">Order Now</button>
-            </div>
-
-            <div class="product-card">
-                <img src="{% static 'C:\Users\user\Desktop\food sty\static\image\Sushi lovers.jpeg' %}" alt="Best Seller">
-                <h2>Sushi Deluxe</h2>
-                <p>$24.99</p>
-                <button class="order-btn">Order Now</button>
-            </div>
+<!-- Top Featured Products -->
+<section class="featured-section">
+    <h1>🌟 Top Featured Products</h1>
+    <div class="carousel-container">
+        <div class="product-card">
+            <img src="{% static 'C:\Users\user\Desktop\food sty\static\image\Hamburger on a white background food photograph _ Premium AI-generated image.jpeg' %}" alt="Top Dish">
+            <h2>Burger</h2>
+            <p>$18.99</p>
+            <button class="order-btn">Order Now</button>
         </div>
-    </section>
-
-    <!-- New Favorites -->
-    <section class="favorites-section">
-        <h1>🔥 New Favorites</h1>
-        <div class="favorites-grid">
-            <div class="product-card">
-                <img src="{% static 'C:\Users\user\Desktop\food sty\static\image\Spicy Miso Ramen with Crispy Garlic.jpeg' %}" alt="New Dish">
-                <h2>Spicy Ramen</h2>
-                <p>$11.99</p>
-                <button class="order-btn">Order Now</button>
-            </div>
-
-            <div class="product-card">
-                <img src="{% static 'C:\Users\user\Desktop\food sty\static\image\This BBQ Ranch Chicken Wrap is a quick, flavorful….jpeg' %}" alt="Trending">
-                <h2>BBQ Chicken Wrap</h2>
-                <p>$9.99</p>
-                <button class="order-btn">Order Now</button>
-            </div>
+        <div class="product-card">
+            <img src="{% static 'C:\Users\user\Desktop\food sty\static\image\Pepperoni PSD, High Quality Free PSD Templates for Download _ Freepik.jpeg' %}" alt="Best Seller">
+            <h2>Pizza</h2>
+            <p>$24.99</p>
+            <button class="order-btn">Order Now</button>
         </div>
-    </section>
+        <div class="product-card">
+            <img src="{% static 'C:\Users\user\Desktop\food sty\static\image\Honey and sriracha chicken wings with a yummy….jpeg' %}" alt="Pasta">
+            <h2>Chicken wings</h2>
+            <p>$21.50</p>
+            <button class="order-btn">Order Now</button>
+        </div>
+        <div class="product-card">
+            <img src="{% static 'C:\Users\user\Desktop\food sty\static\image\Stuffed Chicken Breasts - Juicy and Flavorful Dinner Recipe - Recipes by Clare.jpeg' %}" alt="Salad">
+            <h2>stuffed Chicken</h2>
+            <p>$10.00</p>
+            <button class="order-btn">Order Now</button>
+        </div>
+    </div>
+</section>
+
+<!-- New Favorites -->
+<section class="favorites-section">
+    <h1>🔥 New Favorites</h1>
+    <div class="carousel-container">
+        <div class="product-card">
+            <img src="{% static 'C:\Users\user\Desktop\food sty\static\image\Pancake-Teig - das fluffige Grundrezept.jpeg' %}" alt="New Dish">
+            <h2> pancakes</h2>
+            <p>$11.99</p>
+            <button class="order-btn">Order Now</button>
+        </div>
+        <div class="product-card">
+            <img src="{% static 'C:\Users\user\Desktop\food sty\static\image\Instant Pot Steak Fajitas - Little Sunny Kitchen.jpeg' %}" alt="Trending">
+            <h2>taco</h2>
+            <p>$9.99</p>
+            <button class="order-btn">Order Now</button>
+        </div>
+        <div class="product-card">
+            <img src="{% static 'C:\Users\user\Desktop\food sty\static\image\Layered Chocolate Cheesecake with Oreo Crust – No Bake.jpeg' %}" alt="Burger">
+            <h2>chocolate cake</h2>
+            <p>$13.99</p>
+            <button class="order-btn">Order Now</button>
+        </div>
+        <div class="product-card">
+            <img src="{% static 'C:\Users\user\Desktop\food sty\static\image\download (2).jpeg' %}" alt="Pizza">
+            <h2>fruits</h2>
+            <p>$15.99</p>
+            <button class="order-btn">Order Now</button>
+        </div>
+    </div>
+</section>
+
 
 </body>
 </html>
