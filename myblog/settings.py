@@ -143,5 +143,11 @@ MEDIA_ROOT = BASE_DIR / 'media'
 
 LOGIN_REDIRECT_URL = '/'
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'your-deployed-domain.com']
+ALLOWED_HOSTS = [
+    "my-app-dsr6.onrender.com",
+    "127.0.0.1",
+    "localhost"
+]
+
 
 
